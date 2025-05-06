@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "2096109d-b66c-4119-8013-d4a666f20a66",
+		"name": "Prices collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13640987"
+	},
+	"item": [
+		{
+			"name": "Get Prices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdm9yaXMiLCJpYXQiOjE3NDY1NTcyNjMsImV4cCI6MTc0NjU1Nzg2M30.0atIaISedlWpxvUXDZpqvJKljli9Te4F7ct7KP98SbE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=26/05/2025 10:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "26/05/2025 10:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"GET\" Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
