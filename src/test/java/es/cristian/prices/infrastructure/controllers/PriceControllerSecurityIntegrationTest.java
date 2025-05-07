@@ -66,8 +66,9 @@ public class PriceControllerSecurityIntegrationTest {
 
 		HttpEntity<Void> request = new HttpEntity(headers);
 
-		UriComponentsBuilder builder = UriComponentsBuilder.fromUri(new URI(baseUrl)).queryParam("date", date)
-				.queryParam("productId", productId).queryParam("brandId", brandId);
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUri(new URI(baseUrl))
+				.queryParam("date", "2020-06-16T21:00:00").queryParam("productId", productId)
+				.queryParam("brandId", brandId);
 
 		ResponseEntity<PriceResponseDTO> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET,
 				request, PriceResponseDTO.class);
@@ -92,7 +93,8 @@ public class PriceControllerSecurityIntegrationTest {
 	}
 
 	@Test
-	void search_return404_tokenIsValidTest() {
+	void search_return404_tokenIsValidTest() throws URISyntaxException {
+
 		String token = jwtTokenProvider.generateToken("test");
 
 		HttpHeaders headers = new HttpHeaders();
@@ -101,8 +103,10 @@ public class PriceControllerSecurityIntegrationTest {
 
 		HttpEntity<Void> request = new HttpEntity(headers);
 
-		ResponseEntity<Map> response = restTemplate.exchange(baseUrl, HttpMethod.GET, request, Map.class, date, 7L,
-				11111L);
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUri(new URI(baseUrl))
+				.queryParam("date", "2020-06-16T21:00:00").queryParam("productId", 11111L).queryParam("brandId", 7L);
+
+		ResponseEntity<Map> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, request, Map.class);
 
 		assertAll(() -> assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode()),
 				() -> assertNotNull(response.getBody()), () -> assertTrue(response.getBody().containsKey("error")),

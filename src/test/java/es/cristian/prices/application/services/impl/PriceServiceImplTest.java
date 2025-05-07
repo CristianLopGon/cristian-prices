@@ -32,17 +32,18 @@ public class PriceServiceImplTest {
 	@InjectMocks
 	private PriceServiceImpl priceService;
 
-	LocalDateTime start = LocalDateTime.of(2025, 6, 14, 10, 0);
-	LocalDateTime end = LocalDateTime.of(2025, 12, 31, 16, 0);
+	LocalDateTime start = LocalDateTime.of(2020, 6, 14, 0, 0, 0);
+	LocalDateTime end = LocalDateTime.of(2020, 12, 31, 23, 59, 59);
 
-	Price price = new Price(35455L, 1L, start, end, 1, 1, new BigDecimal(213), "EUR");
+	Price price = new Price(35455L, 1L, start, end, 1, 1, new BigDecimal(35.50), "EUR");
 
 	@Test
 	void search_returnValidTest() {
-		when(priceRepository.findApplicablePrice(LocalDateTime.of(2025, 8, 31, 16, 0), 35455L, 1L))
+		when(priceRepository.findApplicablePrice(LocalDateTime.of(2020, 8, 31, 16, 0), 35455L, 1L))
 				.thenReturn(Optional.of(price));
+		when(mapper.toDto(price)).thenReturn(new PriceResponseDTO(35455L, 1L, 1, start, end, new BigDecimal(35.50)));
 
-		Optional<PriceResponseDTO> responseDto = priceService.getPrice(LocalDateTime.of(2025, 8, 31, 16, 0), 35455L,
+		Optional<PriceResponseDTO> responseDto = priceService.getPrice(LocalDateTime.of(2020, 8, 31, 16, 0), 35455L,
 				1L);
 
 		assertAll(() -> assertTrue(responseDto.isPresent()), () -> assertEquals(35455L, responseDto.get().productId()),

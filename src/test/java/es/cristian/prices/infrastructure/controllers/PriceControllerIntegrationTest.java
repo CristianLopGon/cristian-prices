@@ -34,7 +34,7 @@ public class PriceControllerIntegrationTest {
 
 	private String baseUrl;
 
-	private String date = "2025-06-18T10:00:00";
+	private String date = "2020-06-18T10:00:00";
 	private Long productId = 35455L;
 	private Long brandId = 1L;
 
@@ -64,6 +64,71 @@ public class PriceControllerIntegrationTest {
 		assertAll(() -> assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode()),
 				() -> assertNotNull(response.getBody()), () -> assertTrue(response.getBody().containsKey("error")),
 				() -> assertEquals("Precios no encontrados con estos parámetros.", response.getBody().get("error")));
+	}
+
+	@Test
+	void search_return200_Test1() {
+		ResponseEntity<PriceResponseDTO> response = restTemplate.getForEntity(
+				baseUrl + "?date={date}&productId={productId}&brandId={brandId}", PriceResponseDTO.class,
+				"14-06-2020 10:00:00", productId, brandId);
+
+		assertAll(() -> assertEquals(HttpStatus.OK, response.getStatusCode()), () -> assertNotNull(response.getBody()),
+				() -> assertEquals(35455L, response.getBody().productId()),
+				() -> assertEquals(1L, response.getBody().brandId()),
+				() -> assertEquals(1, response.getBody().priceList()),
+				() -> assertEquals(new BigDecimal("35.50"), response.getBody().price()));
+	}
+
+	@Test
+	void search_return200_Test2() {
+		ResponseEntity<PriceResponseDTO> response = restTemplate.getForEntity(
+				baseUrl + "?date={date}&productId={productId}&brandId={brandId}", PriceResponseDTO.class,
+				"14-06-2020 16:00:00", productId, brandId);
+
+		assertAll(() -> assertEquals(HttpStatus.OK, response.getStatusCode()), () -> assertNotNull(response.getBody()),
+				() -> assertEquals(35455L, response.getBody().productId()),
+				() -> assertEquals(1L, response.getBody().brandId()),
+				() -> assertEquals(2, response.getBody().priceList()),
+				() -> assertEquals(new BigDecimal("25.45"), response.getBody().price()));
+	}
+
+	@Test
+	void search_return200_Test3() {
+		ResponseEntity<PriceResponseDTO> response = restTemplate.getForEntity(
+				baseUrl + "?date={date}&productId={productId}&brandId={brandId}", PriceResponseDTO.class,
+				"14-06-2020 21:00:00", productId, brandId);
+
+		assertAll(() -> assertEquals(HttpStatus.OK, response.getStatusCode()), () -> assertNotNull(response.getBody()),
+				() -> assertEquals(35455L, response.getBody().productId()),
+				() -> assertEquals(1L, response.getBody().brandId()),
+				() -> assertEquals(1, response.getBody().priceList()),
+				() -> assertEquals(new BigDecimal("35.50"), response.getBody().price()));
+	}
+
+	@Test
+	void search_return200_Test4() {
+		ResponseEntity<PriceResponseDTO> response = restTemplate.getForEntity(
+				baseUrl + "?date={date}&productId={productId}&brandId={brandId}", PriceResponseDTO.class,
+				"15-06-2020 10:00:00", productId, brandId);
+
+		assertAll(() -> assertEquals(HttpStatus.OK, response.getStatusCode()), () -> assertNotNull(response.getBody()),
+				() -> assertEquals(35455L, response.getBody().productId()),
+				() -> assertEquals(1L, response.getBody().brandId()),
+				() -> assertEquals(3, response.getBody().priceList()),
+				() -> assertEquals(new BigDecimal("30.50"), response.getBody().price()));
+	}
+
+	@Test
+	void search_return200_Test5() {
+		ResponseEntity<PriceResponseDTO> response = restTemplate.getForEntity(
+				baseUrl + "?date={date}&productId={productId}&brandId={brandId}", PriceResponseDTO.class,
+				"16-06-2020 21:00:00", productId, brandId);
+
+		assertAll(() -> assertEquals(HttpStatus.OK, response.getStatusCode()), () -> assertNotNull(response.getBody()),
+				() -> assertEquals(35455L, response.getBody().productId()),
+				() -> assertEquals(1L, response.getBody().brandId()),
+				() -> assertEquals(4, response.getBody().priceList()),
+				() -> assertEquals(new BigDecimal("38.95"), response.getBody().price()));
 	}
 
 }

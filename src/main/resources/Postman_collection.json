@@ -13,12 +13,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdm9yaXMiLCJpYXQiOjE3NDY1NTcyNjMsImV4cCI6MTc0NjU1Nzg2M30.0atIaISedlWpxvUXDZpqvJKljli9Te4F7ct7KP98SbE",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/prices?date=26/05/2025 10:00:00&productId=35455&brandId=1",
+					"raw": "http://localhost:8080/prices?date=26-08-2020 10:00:00&productId=35455&brandId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,7 +30,7 @@
 					"query": [
 						{
 							"key": "date",
-							"value": "26/05/2025 10:00:00"
+							"value": "26-08-2020 10:00:00"
 						},
 						{
 							"key": "productId",
@@ -60,6 +60,201 @@
 					"path": [
 						"login",
 						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=14-06-2020 10:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "14-06-2020 10:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=14-06-2020 16:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "14-06-2020 16:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=14-06-2020 21:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "14-06-2020 21:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test4",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=15-06-2020 10:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "15-06-2020 10:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzQ2NjM4MTk5LCJleHAiOjE3NDY2Mzg3OTl9.xyvfv_xGuxUXb8oryLVjxDW2sDgDpc5yutvTH2B5IAk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/prices?date=16-06-2020 21:00:00&productId=35455&brandId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "16-06-2020 21:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						}
 					]
 				}
 			},

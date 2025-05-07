@@ -1,0 +1,22 @@
+services:
+   app:
+      build:
+         context: .
+         dockerfile: Dockerfile
+      container_name: prices-app
+      ports:
+         - "8080:8080"
+      networks:
+         - prices-net	
+   test-runner:
+      build:
+         context: .
+         dockerfile: Dockerfile.test
+      environment:
+         SPRING_PROFILES_ACTIVE: test
+      networks:
+         - prices-net
+
+networks:
+   prices-net:
+      driver: bridge

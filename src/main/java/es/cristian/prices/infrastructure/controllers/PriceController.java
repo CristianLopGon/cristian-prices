@@ -2,6 +2,8 @@ package es.cristian.prices.infrastructure.controllers;
 
 import java.time.LocalDateTime;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/prices")
 public class PriceController {
 
+	private final Logger logger = LoggerFactory.getLogger(PriceController.class);
 	private final PriceService service;
 
 	public PriceController(PriceService service) {
@@ -34,6 +37,7 @@ public class PriceController {
 	@GetMapping
 	public ResponseEntity<PriceResponseDTO> getPrice(@RequestParam LocalDateTime date, @RequestParam Long productId,
 			@RequestParam Long brandId) {
+		logger.info(String.format("Entrada de PriceController: %s, %d, %d", date.toString(), productId, brandId));
 		return service.getPrice(date, productId, brandId).map(ResponseEntity::ok)
 				.orElseThrow(() -> new SearchNotFoundException("Precios no encontrados con estos parámetros."));
 	}

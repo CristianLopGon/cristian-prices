@@ -27,7 +27,6 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-		System.out.println("Properties security are enabled?? " + properties.isEnabled());
 		if (!properties.isEnabled()) {
 			http.csrf((csrf) -> csrf.disable())
 					.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests.anyRequest().permitAll());
