@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Price.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">prices</a> &gt; <a href="index.source.html" class="el_package">es.cristian.prices.domain.models</a> &gt; <span class="el_source">Price.java</span></div><h1>Price.java</h1><pre class="source lang-java linenums">package es.cristian.prices.domain.models;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public class Price {
+
+	private Long productId;
+	private Long brandId;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
+	private Integer priceList;
+	private Integer priority;
+	private BigDecimal price;
+	private String currency;
+
+	public Price(Long productId, Long brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList,
+			Integer priority, BigDecimal price, String currency) {
+<span class="fc" id="L19">		super();</span>
+<span class="fc" id="L20">		this.brandId = brandId;</span>
+<span class="fc" id="L21">		this.startDate = startDate;</span>
+<span class="fc" id="L22">		this.endDate = endDate;</span>
+<span class="fc" id="L23">		this.priceList = priceList;</span>
+<span class="fc" id="L24">		this.productId = productId;</span>
+<span class="fc" id="L25">		this.priority = priority;</span>
+<span class="fc" id="L26">		this.price = price;</span>
+<span class="fc" id="L27">		this.currency = currency;</span>
+<span class="fc" id="L28">	}</span>
+
+	public Long getBrandId() {
+<span class="fc" id="L31">		return brandId;</span>
+	}
+
+	public LocalDateTime getStartDate() {
+<span class="fc" id="L35">		return startDate;</span>
+	}
+
+	public LocalDateTime getEndDate() {
+<span class="fc" id="L39">		return endDate;</span>
+	}
+
+	public Integer getPriceList() {
+<span class="fc" id="L43">		return priceList;</span>
+	}
+
+	public Long getProductId() {
+<span class="fc" id="L47">		return productId;</span>
+	}
+
+	public Integer getPriority() {
+<span class="fc" id="L51">		return priority;</span>
+	}
+
+	public BigDecimal getPrice() {
+<span class="fc" id="L55">		return price;</span>
+	}
+
+	public String getCurrency() {
+<span class="fc" id="L59">		return currency;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

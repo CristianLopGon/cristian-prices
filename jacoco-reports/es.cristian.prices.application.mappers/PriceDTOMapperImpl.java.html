@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PriceDTOMapperImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">prices</a> &gt; <a href="index.source.html" class="el_package">es.cristian.prices.application.mappers</a> &gt; <span class="el_source">PriceDTOMapperImpl.java</span></div><h1>PriceDTOMapperImpl.java</h1><pre class="source lang-java linenums">package es.cristian.prices.application.mappers;
+
+import es.cristian.prices.application.dto.PriceResponseDTO;
+import es.cristian.prices.domain.models.Price;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2025-05-07T23:15:52+0000&quot;,
+    comments = &quot;version: 1.6.3, compiler: javac, environment: Java 21.0.7 (Eclipse Adoptium)&quot;
+)
+@Component
+<span class="fc" id="L16">public class PriceDTOMapperImpl implements PriceDTOMapper {</span>
+
+    @Override
+    public Price toDomain(PriceResponseDTO dto) {
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if ( dto == null ) {</span>
+<span class="nc" id="L21">            return null;</span>
+        }
+
+<span class="fc" id="L24">        Long productId = null;</span>
+<span class="fc" id="L25">        Long brandId = null;</span>
+<span class="fc" id="L26">        LocalDateTime startDate = null;</span>
+<span class="fc" id="L27">        LocalDateTime endDate = null;</span>
+<span class="fc" id="L28">        Integer priceList = null;</span>
+<span class="fc" id="L29">        BigDecimal price = null;</span>
+
+<span class="fc" id="L31">        productId = dto.productId();</span>
+<span class="fc" id="L32">        brandId = dto.brandId();</span>
+<span class="fc" id="L33">        startDate = dto.startDate();</span>
+<span class="fc" id="L34">        endDate = dto.endDate();</span>
+<span class="fc" id="L35">        priceList = dto.priceList();</span>
+<span class="fc" id="L36">        price = dto.price();</span>
+
+<span class="fc" id="L38">        Integer priority = null;</span>
+<span class="fc" id="L39">        String currency = null;</span>
+
+<span class="fc" id="L41">        Price price1 = new Price( productId, brandId, startDate, endDate, priceList, priority, price, currency );</span>
+
+<span class="fc" id="L43">        return price1;</span>
+    }
+
+    @Override
+    public PriceResponseDTO toDto(Price domain) {
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if ( domain == null ) {</span>
+<span class="nc" id="L49">            return null;</span>
+        }
+
+<span class="fc" id="L52">        Long productId = null;</span>
+<span class="fc" id="L53">        Long brandId = null;</span>
+<span class="fc" id="L54">        Integer priceList = null;</span>
+<span class="fc" id="L55">        LocalDateTime startDate = null;</span>
+<span class="fc" id="L56">        LocalDateTime endDate = null;</span>
+<span class="fc" id="L57">        BigDecimal price = null;</span>
+
+<span class="fc" id="L59">        productId = domain.getProductId();</span>
+<span class="fc" id="L60">        brandId = domain.getBrandId();</span>
+<span class="fc" id="L61">        priceList = domain.getPriceList();</span>
+<span class="fc" id="L62">        startDate = domain.getStartDate();</span>
+<span class="fc" id="L63">        endDate = domain.getEndDate();</span>
+<span class="fc" id="L64">        price = domain.getPrice();</span>
+
+<span class="fc" id="L66">        PriceResponseDTO priceResponseDTO = new PriceResponseDTO( productId, brandId, priceList, startDate, endDate, price );</span>
+
+<span class="fc" id="L68">        return priceResponseDTO;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

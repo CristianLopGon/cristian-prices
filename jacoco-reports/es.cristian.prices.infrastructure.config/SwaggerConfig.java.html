@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SwaggerConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">prices</a> &gt; <a href="index.source.html" class="el_package">es.cristian.prices.infrastructure.config</a> &gt; <span class="el_source">SwaggerConfig.java</span></div><h1>SwaggerConfig.java</h1><pre class="source lang-java linenums">package es.cristian.prices.infrastructure.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+
+@Configuration
+@OpenAPIDefinition(info = @Info(title = &quot;Servicio de búsquedas&quot;, version = &quot;1.0&quot;, description = &quot;Consulta de precios y tarifas&quot;), security = @SecurityRequirement(name = &quot;bearerAuth&quot;))
+<span class="fc" id="L16">public class SwaggerConfig {</span>
+
+	@Bean
+	public OpenAPI customOpenAPI() {
+<span class="fc" id="L20">		return new OpenAPI()</span>
+<span class="fc" id="L21">				.components(new Components().addSecuritySchemes(&quot;bearerAuth&quot;,</span>
+<span class="fc" id="L22">						new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme(&quot;bearer&quot;).bearerFormat(&quot;JWT&quot;)))</span>
+<span class="fc" id="L23">				.info(apiInfo());</span>
+	}
+
+	private io.swagger.v3.oas.models.info.Info apiInfo() {
+
+<span class="fc" id="L28">		return new io.swagger.v3.oas.models.info.Info().title(&quot;Api de búsquedas&quot;)</span>
+<span class="fc" id="L29">				.description(&quot;API para buscar precios y tarifa aplicada al producto&quot;).version(&quot;1.0&quot;).contact(contact());</span>
+
+	}
+
+	private Contact contact() {
+<span class="fc" id="L34">		Contact contact = new Contact();</span>
+<span class="fc" id="L35">		contact.setEmail(&quot;cristianlopgon@gmail.com&quot;);</span>
+<span class="fc" id="L36">		contact.setName(&quot;Cristian López González&quot;);</span>
+<span class="fc" id="L37">		return contact;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -14,6 +14,9 @@ services:
          dockerfile: Dockerfile.test
       environment:
          SPRING_PROFILES_ACTIVE: test
+      volumes:
+         - ./jacoco-reports:/app/target/jacoco-reports
+         - ./coverage-reports:/app/target/coverage-reports
       networks:
          - prices-net
 

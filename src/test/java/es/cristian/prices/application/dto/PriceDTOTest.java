@@ -18,7 +18,7 @@ public class PriceDTOTest {
 		PriceResponseDTO dto = new PriceResponseDTO(35455L, 1L, 1, start, end, new BigDecimal(213));
 
 		assertAll(() -> assertEquals(35455L, dto.productId()), () -> assertEquals(1L, dto.brandId()),
-				() -> assertEquals(1, dto.priceList()));
+				() -> assertEquals(1, dto.priceList()), () -> assertEquals(new BigDecimal(213), dto.price()));
 	}
 
 }

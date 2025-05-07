@@ -1,6 +1,5 @@
 package es.cristian.prices.infrastructure.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +12,11 @@ import es.cristian.prices.infrastructure.security.JwtTokenProvider;
 @RequestMapping("/login")
 public class LoginController {
 
-	@Autowired
-	private JwtTokenProvider provider;
+	private final JwtTokenProvider provider;
+
+	public LoginController(JwtTokenProvider provider) {
+		this.provider = provider;
+	}
 
 	@GetMapping("/token")
 	public ResponseEntity<AuthResponse> login() {

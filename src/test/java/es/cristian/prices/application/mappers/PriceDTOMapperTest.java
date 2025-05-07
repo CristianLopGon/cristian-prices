@@ -3,23 +3,21 @@ package es.cristian.prices.application.mappers;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import es.cristian.prices.application.dto.PriceResponseDTO;
 import es.cristian.prices.domain.models.Price;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class PriceDTOMapperTest {
 
-	@Mock
+	@Autowired
 	private PriceDTOMapper mapper;
 
 	LocalDateTime start = LocalDateTime.of(2025, 2, 14, 10, 0);
@@ -31,7 +29,7 @@ public class PriceDTOMapperTest {
 	@Test
 	void toDTOTest() {
 
-		when(mapper.toDto(price)).thenReturn(dto);
+		// when(mapper.toDto(price)).thenReturn(dto);
 		PriceResponseDTO priceDto = mapper.toDto(price);
 
 		assertAll(() -> assertNotNull(priceDto), () -> assertEquals(35455L, priceDto.productId()),
@@ -40,7 +38,7 @@ public class PriceDTOMapperTest {
 
 	@Test
 	void toDomainTest() {
-		when(mapper.toDomain(dto)).thenReturn(price);
+		// when(mapper.toDomain(dto)).thenReturn(price);
 		Price priceResult = mapper.toDomain(dto);
 
 		assertAll(() -> assertNotNull(priceResult), () -> assertEquals(35455L, priceResult.getProductId()),

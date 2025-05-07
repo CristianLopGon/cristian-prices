@@ -47,7 +47,8 @@ public class PriceServiceImplTest {
 				1L);
 
 		assertAll(() -> assertTrue(responseDto.isPresent()), () -> assertEquals(35455L, responseDto.get().productId()),
-				() -> assertEquals(1L, responseDto.get().brandId()));
+				() -> assertEquals(1L, responseDto.get().brandId()),
+				() -> assertEquals(1, responseDto.get().priceList()));
 	}
 
 }
