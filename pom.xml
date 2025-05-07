@@ -10,22 +10,23 @@
 	</parent>
 	<groupId>es.cristian</groupId>
 	<artifactId>prices</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>prices</name>
 	<description>Pequeño proyecto de prueba de arquitectura hexagonal</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
 	<developers>
-		<developer/>
+	    <developer>
+	      <id>clopez</id>
+	      <name>Cristian López</name>
+	      <email>cristianlopgon@gmail.com</email>
+	      <url></url>
+	      <organization/>
+	      <roles>
+	        <role>developer</role>
+	      </roles>
+	      <timezone>Europe/London</timezone>
+	      <properties/>
+	    </developer>
 	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

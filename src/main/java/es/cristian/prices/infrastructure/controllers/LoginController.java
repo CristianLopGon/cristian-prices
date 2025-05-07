@@ -18,6 +18,6 @@ public class LoginController {
 
 	@GetMapping("/token")
 	public ResponseEntity<AuthResponse> login() {
-		return ResponseEntity.ok(new AuthResponse(provider.generateToken("avoris")));
+		return ResponseEntity.ok(new AuthResponse(provider.generateToken("test")));
 	}
 }

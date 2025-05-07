@@ -1,5 +1,6 @@
 package es.cristian.prices.application.dto;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -16,9 +17,8 @@ public class PriceDTOTest {
 	void priceDTOConstructorTest() {
 		PriceResponseDTO dto = new PriceResponseDTO(35455L, 1L, 1, start, end, new BigDecimal(213));
 
-		assertEquals(35455L, dto.productId());
-		assertEquals(1L, dto.brandId());
-		assertEquals(1, dto.priceList());
+		assertAll(() -> assertEquals(35455L, dto.productId()), () -> assertEquals(1L, dto.brandId()),
+				() -> assertEquals(1, dto.priceList()));
 	}
 
 }
