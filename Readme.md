@@ -15,17 +15,20 @@ Se ha realizado el proyecto siguiendo una arquitectura hexagonal con:
 - **Spring Boot Test** for testing.
 - **MapStruct** para mapear Modelo, DTO y Entities.
 - **Swagger** para documentación de la API.
+- **JaCoco** para cobertura de tests.
+- **Docker**: Uso de docker-compose para gestionar la infraestructura.
+- **Postman**: Colección de Postman preconfigurada con todas las llamadas.
 
 ## Desarrollo
 
 
 ### Llamada GET /token/login
 
-Aunque no se pide seguridad para el Endpoint, se ha implementado un token ficticio con JWT que se puede obtener sin usuario ni contraseña. Es una forma de intentar hacer la API lo más real posible, aunque el token se obtenga con un GET y con un `POST`y un body del tipo:
+Aunque no se pide seguridad para el Endpoint, se ha implementado un token ficticio con JWT que se puede obtener sin usuario ni contraseña. Es una forma de intentar hacer la API lo más real posible, aunque el token se obtenga con un GET y NO con un `POST`y un body del tipo:
 
 		{
-			"usuario":"avoris", 
-			"password":"avoris123"
+			"usuario":"test", 
+			"password":"test"
 		}
 		
 Esta llamada devolverá un token para usarse en caso de estar activada la seguridad (se mostraraá como activar/desactivar la seguridad)
